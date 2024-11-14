@@ -42,3 +42,30 @@ function loadVehiclePage() {
 
 // Optional: Add event listener if you want to handle it programmatically
 document.querySelector("button[onclick='loadVehiclePage()']").addEventListener("click", loadVehiclePage);
+
+
+
+
+
+
+function loadStaffPage() {
+    // Redirect to a new page
+    window.location.href = "/pages/StaffManagePage.html";  // Update with the actual path to your new page
+}
+
+// Optional: Add event listener if you want to handle it programmatically
+document.querySelector("button[onclick='loadStaffPage()']").addEventListener("click", loadStaffPage);
+
+
+
+
+
+function loadFieldPage() {
+    // Redirect to a new page
+    window.location.href = "/pages/FieldManagePage.html";  // Update with the actual path to your new page
+}
+
+// Optional: Add event listener if you want to handle it programmatically
+document.querySelector("button[onclick='loadFieldPage()']").addEventListener("click", loadFieldPage);
+
+
