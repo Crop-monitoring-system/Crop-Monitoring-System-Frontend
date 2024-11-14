@@ -1,0 +1,176 @@
+html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(204, 252, 236) !important; /* Ensures red background takes precedence */
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+    display: none;
+}
+
+.box-1 {
+    width: 1400px;
+    height: 800px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+}
+
+.box-2{
+    width: 700px;
+    height: 800px;
+    background-color: rgb(235, 255, 248);
+    border-radius: 10px;
+}
+
+.box-2 #backbtn{
+    margin-top: 2%;
+    margin-left: 2%;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    background-color: white;
+    border: 1px solid rgb(141, 141, 141);
+    font-weight: bold;
+}
+
+.line {
+    width: 2px;
+    height: 800px;
+    background-color: rgb(236, 236, 236);
+}
+
+.box-2 h2 {
+    margin-top: 2%;
+    margin-left: 100px; 
+    font-size: 15px;
+}
+
+.box-3 h5 {
+    font-family: "Lilita One", sans-serif;
+    margin-top: 10%;
+    margin-left: 19%;
+    font-size: 40px;
+    color: #2ecc71;
+   
+}
+
+.box-3 p{
+    margin-top: 3%;
+    margin-left: 19%;
+    color: rgb(158, 158, 158);
+}
+
+
+
+  
+
+
+.box-3 form{
+    margin-top: 7%;
+    margin-left:18%;
+}
+
+#exampleInputEmail1{
+    width: 500px;
+}
+
+#exampleInputPassword1{
+    width: 500px;
+}
+
+#confimepw{
+    width: 500px;
+}
+
+#disabledSelect{
+    width: 500px;
+}
+
+
+
+/* From Uiverse.io by Mhyar-nsi */ 
+#CretaeAccBtn {
+    background-color: #00df82;
+    color: #ffffff;
+    border: none;
+    border-radius: 5%;
+    cursor: pointer;
+    border-radius: 8px;
+    font-family: "Rubik", sans-serif;
+    font-weight: bold;
+    width: 500px;
+    height: 50px;
+    transition: 0.3s;
+    margin-top: 7%;
+    font-size: 20px;
+  }
+  
+  #CretaeAccBtn:hover {
+    background-color: #01f179;
+    box-shadow: 0 0 0 5px #02f0c85f;
+    color: #000000;
+   
+  }
+
+  .mb-3.form-check {
+   width: 500px;
+}
+
+
+#forgetpw {
+    background-color: #ffffff;
+    font-family: "Concert One", sans-serif;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: 14px;
+    text-decoration: underline;
+    margin-left: 260px; /* Moves button to the far right in the flex container */
+}
+
+
+
+.registeruser{
+    margin-top: 4%;
+    margin-left: 19%;
+}
+
+.registeruser h6{
+    color: #7e7e7e;
+}
+
+#singupbtn{
+    background-color: white;
+    border: none;
+    text-decoration: underline;
+    font-family: "Concert One", sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
