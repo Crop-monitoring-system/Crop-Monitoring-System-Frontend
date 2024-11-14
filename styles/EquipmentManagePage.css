@@ -1,0 +1,281 @@
+/* Hide scrollbar */
+::-webkit-scrollbar {
+    display: none;
+}
+
+#EquipmentManage {
+    background-color: rgb(255, 255, 255);
+    height: 100vh; /* Full height of the viewport */
+    width: 100%;  /* Full width of the viewport */
+    overflow-y: auto; /* Enable internal scrolling if content overflows */
+    padding: 20px;
+}
+
+body {
+    background-color: #f8f9fa;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+
+.logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+  }
+
+
+/* 
+#navbarNav {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 100%; 
+}
+
+
+#navbarNav .navbar-nav{
+    gap: 5%;
+}
+
+
+.logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+  }
+  
+
+
+.navbar {
+    background-color: #f8f9fa;}
+
+
+.navbar-brand {
+    font-size: 24px; 
+    font-weight: 600; 
+    color: #00ff95;
+}
+
+
+.navbar-nav .nav-item {
+    margin-left: 15px; 
+}
+
+
+.navbar-nav .nav-link {
+    color: #555; 
+    font-size: 16px; 
+    padding: 8px 16px; 
+    transition: color 0.3s, background-color 0.3s; 
+}
+
+
+.navbar-nav .nav-link:hover {
+    color: rgb(0, 0, 0); 
+    background-color: #00ff95; 
+    border-radius: 5px; 
+}
+
+
+.navbar-nav .nav-link.active {
+    color: rgb(0, 0, 0);
+    background-color: #00ff95; 
+    border-radius: 5px;
+}
+
+.navbar-toggler {
+    border-color: #00ff95; 
+}
+
+.navbar-toggler-icon {
+    background-color: #00ff95; 
+}
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.search-bar {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.search-bar input {
+    width: 76%;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+
+/* button */
+#addnew {
+    background-color: #00ff95; /* Green button */
+    color: #000000; /* White text */
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    
+}
+
+#addnew:hover {
+    background-color: #00ff6a; /* Darker green on hover */
+}
+
+
+
+/* table */
+
+.table-container {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+}
+
+.table th {
+    background-color: #f1f1f1;
+    font-weight: 600;
+}
+
+.table td {
+    border-bottom: 1px solid #e9ecef;
+}
+
+.table img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.badge {
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.badge-fulltime {
+    background-color: #e0f7fa;
+    color: #007bff;
+}
+
+.badge-contractor {
+    background-color: #fce4ec;
+    color: #e91e63;
+}
+
+.pagination {
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+
+/* form */
+
+/* Custom styles for the Form size */
+#FormModal .modal-dialog {
+    max-width: 900px; /* Set the maximum width to 800px */
+    width: 900px; /* Explicit width */
+    height: 600px; /* Set the height to 500px */
+}
+
+/* Adjust modal size */
+.modal-dialog {
+    width: 500px;  /* Set width to 500px */
+    height: 400px; /* Set height to 400px */
+   
+}
+
+/* Pop-in animation for modal */
+.modal.fade .modal-dialog {
+    transform: scale(0.5); /* Start small */
+    opacity: 0; /* Initially invisible */
+    transition: transform 0.4s ease-out, opacity 0.3s ease-out;
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1); /* Pop-in to full size */
+    opacity: 1; /* Fully visible */
+}
+
+
+
+
+
+
+
+/* Media Queries for smaller screens */
+
+/* For tablets and smaller screens (max-width: 768px) */
+@media (max-width: 768px) {
+    #navbarNav {
+        flex-direction: column; /* Stack navbar items vertically */
+        align-items: flex-start; /* Align items to the left */
+        padding-top: 10px; /* Add padding at the top */
+    }
+
+    #navbarNav .navbar-nav {
+        gap: 10px; /* Space between navbar items */
+        width: 100%; /* Ensure the navbar takes full width */
+    }
+
+    /* Reduce logo size for smaller screens */
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .navbar-nav .nav-item {
+        margin-left: 0; /* Remove left margin for vertical items */
+    }
+
+    /* Navbar links */
+    .navbar-nav .nav-link {
+        font-size: 14px; /* Smaller font size for mobile */
+        padding: 10px 20px; /* Adjust padding for better spacing */
+    }
+}
+
+/* For very small screens (max-width: 576px) */
+@media (max-width: 576px) {
+    .logo {
+        width: 40px; /* Further reduce logo size */
+        height: 40px;
+    }
+
+    /* Adjust navbar links font size */
+    .navbar-nav .nav-link {
+        font-size: 12px; /* Make links even smaller */
+    }
+
+    /* Reduce padding for navbar items */
+    .navbar-nav .nav-item {
+        margin-left: 0;
+        text-align: center; /* Center align items */
+    }
+
+    .navbar-toggler {
+        display: block; /* Ensure the hamburger menu is visible */
+    }
+}

@@ -81,7 +81,7 @@ html, body {
 
 
 /* From Uiverse.io by Mhyar-nsi */ 
-#submitbtn {
+#singin {
     background-color: #00df82;
     color: #ffffff;
     border: none;
@@ -97,7 +97,7 @@ html, body {
     font-size: 20px;
   }
   
-  #submitbtn:hover {
+  #singin:hover {
     background-color: #01f179;
     box-shadow: 0 0 0 5px #02f0c85f;
     color: #000000;

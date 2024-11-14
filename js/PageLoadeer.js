@@ -22,6 +22,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Listen for the click event on the button
 document.querySelector("button[onclick='loadCropPage()']").addEventListener("click", loadCropPage);
 
@@ -67,5 +84,34 @@ function loadFieldPage() {
 
 // Optional: Add event listener if you want to handle it programmatically
 document.querySelector("button[onclick='loadFieldPage()']").addEventListener("click", loadFieldPage);
+
+
+
+
+
+
+
+
+function loadEquipmentPage() {
+    // Redirect to a new page
+    window.location.href = "/pages/EquipmentManagePage.html";  // Update with the actual path to your new page
+}
+
+// Optional: Add event listener if you want to handle it programmatically
+document.querySelector("button[onclick='loadEquipmentPage()']").addEventListener("click", loadEquipmentPage);
+
+
+
+
+
+
+
+function loadMonitoringLogPage() {
+    // Redirect to a new page
+    window.location.href = "/pages/MonitoringLogManagePage.html";  // Update with the actual path to your new page
+}
+
+// Optional: Add event listener if you want to handle it programmatically
+document.querySelector("button[onclick='loadMonitoringLogPage()']").addEventListener("click", loadMonitoringLogPage);
 
 
