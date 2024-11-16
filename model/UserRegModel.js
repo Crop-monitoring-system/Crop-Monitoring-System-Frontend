@@ -37,3 +37,42 @@ export async function saveUser(user) {
         alert("An error occurred. Please try again later.");
     }
 }
+
+
+
+
+
+
+
+
+
+// export async function loginUser(loginData) {
+//     const loginJSON = JSON.stringify(loginData);
+//     console.log("Sending login data:", loginJSON);
+
+//     try {
+//         const response = await fetch("http://localhost:8080/api/v1/UserReg/login", {
+//             method: "POST",
+//             headers: { "Content-Type": "application/json" },
+//             body: loginJSON
+//         });
+
+//         if (response.ok) {
+//             const responseData = await response.json();
+//             console.log("Login response data:", responseData);
+
+//             // Check if the login was successful
+//             if (responseData.success) {
+//                 return true;
+//             }
+//         } else {
+//             const errorData = await response.json();
+//             console.error("Login failed:", errorData.message);
+//             alert(errorData.message);
+//         }
+//     } catch (error) {
+//         console.error("Request failed:", error);
+//         alert("An error occurred. Please try again later.");
+//     }
+//     return false; // Default to failure
+// }
