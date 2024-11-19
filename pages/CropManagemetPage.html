@@ -136,8 +136,12 @@
                         <th scope="col">Category</th>
                         <th scope="col">Common Name</th>
                         <th scope="col">Scientific Name</th>
-                        <th scope="col">Active</th>
+                        <th scope="col">Status</th>
                         <th scope="col"></th>
+                        <th scope="col"></th>
+
+                      
+
 
                         
                     </tr>
@@ -242,6 +246,99 @@
             </div>
         </div>
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- update model -->
+
+
+        <!-- Update Modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateModalLabel">Update Crop</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="updateCropForm">
+                    <div class="mb-3">
+                        <label for="updateCode" class="form-label">Code</label>
+                        <input type="text" id="updateCode" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="updateCategory" class="form-label">Category</label>
+                        <input type="text" id="updateCategory" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="updateCommonName" class="form-label">Common Name</label>
+                        <input type="text" id="updateCommonName" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="updateScientificName" class="form-label">Scientific Name</label>
+                        <input type="text" id="updateScientificName" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="updateSeason" class="form-label">Season</label>
+                        <input type="text" id="updateSeason" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="updateStatus" class="form-label">Status</label>
+                        <select id="updateStatus" class="form-select">
+                            <option value="AVAILABLE">AVAILABLE</option>
+                            <option value="IN_USE">IN_USE</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="updateField" class="form-label">Field</label>
+                        <input type="text" id="updateField" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="updateCropImage" class="form-label">Crop Image</label>
+                        <input type="file" id="updateCropImage" class="form-control">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="updateSaveButton" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
