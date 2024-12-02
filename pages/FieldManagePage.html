@@ -127,59 +127,13 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody>
-
-                    <tr>
-                        <td> Esther Howard<br></td>
-                        <td>January 1, 2015</td>
-                        <td>120 Hours</td>
-                        <td>2 Days</td>
-                        <td>8 Hours</td>
-                        <td>$22,500.00</td>
-                        <td>8 Days</td>
-                        <td>8 Days</td>
-                      
-                        <td>
-                            
-                            <!-- <i class="fas fa-ellipsis-v"></i> -->
-                          <!-- Dropdown menu -->
-                          <div class="dropdown">
-                            <i class="fas fa-ellipsis-v" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;"></i>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#" onclick="handleDelete()">Delete</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="handleUpdate()">Update</a></li>
-                            </ul>
-                        </div>
-                    
-                    </td>
-                    </tr>
-
-
-                    <tr>
-                        <td> Esther Howard<br></td>
-                        <td>January 1, 2015</td>
-                        <td>120 Hours</td>
-                        <td>2 Days</td>
-                        <td>8 Hours</td>
-                        <td>$22,500.00</td>
-                        <td>8 Days</td>
-                        <td>8 Days</td>
-                        <td>
-                            <!-- Dropdown menu -->
-                            <div class="dropdown">
-                                <i class="fas fa-ellipsis-v" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;"></i>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a class="dropdown-item" href="#" onclick="handleDelete()">Delete</a></li>
-                                    <li><a class="dropdown-item" href="#" onclick="handleUpdate()">Update</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
+                <tbody id="fieldTableBody">
 
                     <!-- Repeat similar rows for each employee -->
                 </tbody>
             </table>
         </div>
+        <div id="loader" style="display: none;">Loading...</div> <!-- Loader element -->
 
 
 
@@ -192,8 +146,6 @@
 
 
 
-
-        
         <div class="modal fade" id="FormModal" tabindex="-1" aria-labelledby="payrollModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -202,6 +154,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+
                         <form id="popupForm">
 
                             <div class="row mb-3">
@@ -209,75 +162,47 @@
                                     <label for="modalCode" class="form-label">Code</label>
                                     <input type="text" class="form-control" id="modalCode" required>
                                 </div>
-        
-                                <!-- Field on the right side -->
                                 <div class="col-md-6">
-                                    <label for="modalSeason" class="form-label">Name</label>
-                                    <input type="text" class="form-control" id="modalSeason" required>
+                                    <label for="modalName" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="modalName" required>
                                 </div>
-    
-                            </div>
-
-
-                        <div class="row mb-3">   
-
-                            <div class="col-md-6">
-                                <label for="modalCode" class="form-label">Size</label>
-                                <input type="text" class="form-control" id="modalCode" required>
-                            </div>
-    
-                            <!-- Field on the right side -->
-                            <div class="col-md-6">
-                                <label for="modalSeason" class="form-label">Location</label>
-                                <input type="text" class="form-control" id="modalSeason" required>
-                            </div>
-
-                        </div>    
-
-
-                     <div class="row mb-3">   
-                        <div class="col-md-6">
-                            <label for="imageInput" class="form-label">Upload Field Image number 1</label>
-                            <input type="file" class="form-control" id="imageInput" accept="image/*" required>
-                        </div>
-
-                        
-                        <div class="col-md-6">
-                            <label for="imageInput" class="form-label">Upload Field Image number 2</label>
-                            <input type="file" class="form-control" id="imageInput" accept="image/*" required>
-                        </div>
-
-                    </div>    
-
-
-
-                        <div class="row mb-3">    
-
-
-                            <div class="col-md-6">
-                                <label for="modalCategory" class="form-label">Staff</label>
-                                <select class="form-select" id="modalCategory">
-                                    <option selected>Gender</option>
-                                    <option>eeee</option>
-                                    <option>ggggggg</option>
-                                </select>
                             </div>
         
-                            <div class="col-md-6">
-                                <label for="modalCategory" class="form-label">Crops</label>
-                                <select class="form-select" id="modalCategory">
-                                    <option selected>Role</option>
-                                    <option>eeee</option>
-                                    <option>ggggggg</option>
-                                </select>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="modalSize" class="form-label">Size</label>
+                                    <input type="text" class="form-control" id="modalSize" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="modalLocation" class="form-label">Location</label>
+                                    <input type="text" class="form-control" id="modalLocation" required>
+                                </div>
                             </div>
-
-                        </div>    
-                        
-
-
-
+        
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="modalImage1" class="form-label">Upload Field Image number 1</label>
+                                    <input type="file" class="form-control" id="modalImage1" accept="image/*" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="modalImage2" class="form-label">Upload Field Image number 2</label>
+                                    <input type="file" class="form-control" id="modalImage2" accept="image/*" required>
+                                </div>
+                            </div>
+        
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="modalActive" class="form-label">Status</label>
+                                    <select class="form-select" id="modalActive" required>
+                                        <option selected>Status</option>
+                                        <option value="AVAILABLE">AVAILABLE</option>
+                                        <option value="IN_USE">IN_USE</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
                         </form>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -287,6 +212,73 @@
             </div>
         </div>
         
+        
+
+
+
+
+
+
+              <!-- Update Modal -->
+<!-- Update Modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateModalLabel">Update Field</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="updateFieldForm">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="updateCode" class="form-label">Code</label>
+                            <input type="text" class="form-control" id="updateCode" required readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="updateName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="updateName" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="updateSize" class="form-label">Size</label>
+                            <input type="text" class="form-control" id="updateSize" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="updateLocation" class="form-label">Location</label>
+                            <input type="text" class="form-control" id="updateLocation" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="updateImage1" class="form-label">Upload Field Image number 1</label>
+                            <input type="file" class="form-control" id="updateImage1" accept="image/*">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="updateImage2" class="form-label">Upload Field Image number 2</label>
+                            <input type="file" class="form-control" id="updateImage2" accept="image/*">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="updateActive" class="form-label">Status</label>
+                            <select class="form-select" id="updateActive" required>
+                                <option selected>Status</option>
+                                <option value="AVAILABLE">AVAILABLE</option>
+                                <option value="IN_USE">IN_USE</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="updateSaveButton" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

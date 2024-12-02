@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
+// delete and update button all complete code 
 
 let selectedRow = null; // Track the currently selected row
 
@@ -271,6 +271,9 @@ async function fetchAndPopulateCrops() {
     }
 }
 
+
+
+
 // Function to handle row selection
 function selectTableRow(row, cropCode) {
     // Clear previous selection
@@ -283,6 +286,13 @@ function selectTableRow(row, cropCode) {
     selectedRow.style.backgroundColor = 'red'; // Set background color to red
     selectedRow.dataset.selectedCropCode = cropCode; // Save the selected crop code
 }
+
+
+
+
+
+
+
 
 // Function to delete a crop from the backend and remove the row
 async function handleDelete(cropCode, row) {
@@ -309,6 +319,9 @@ async function handleDelete(cropCode, row) {
     }
 }
 
+
+
+
 // Function to dynamically remove the selected row
 function removeTableRow(row) {
     if (row) {
@@ -318,6 +331,8 @@ function removeTableRow(row) {
         console.warn('No row to remove.');
     }
 }
+
+
 
 // Function to open the update modal with crop details
 function openUpdateModal(crop) {
