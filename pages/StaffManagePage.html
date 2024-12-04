@@ -83,33 +83,6 @@
         </div>
 
 
-                              <!-- Pagination and Results Control -->
-    <!-- <div class="d-flex align-items-center justify-content-between mt-3">
-        <div class="d-flex align-items-center">
-            <label class="me-2">Show result:</label>
-            <select class="form-select form-select-sm" style="width: auto;">
-                <option selected>10</option>
-                <option>25</option>
-                <option>50</option>
-                <option>100</option>
-            </select>
-        </div>
-        <nav aria-label="Page navigation">
-            <ul class="pagination pagination-sm mb-0">
-                <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">1</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">...</a></li>
-                <li class="page-item"><a class="page-link" href="#">9</a></li>
-                <li class="page-item"><a class="page-link" href="#">10</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                </li>
-            </ul>
-        </nav>
-    </div>   -->
-             
 
         <!-- Table -->
         <div class="table-container">
@@ -134,73 +107,14 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="staffTableBody">
 
-                    <tr>
-                        <td> Esther Howard<br></td>
-                        <td>January 1, 2015</td>
-                        <td>120 Hours</td>
-                        <td>2 Days</td>
-                        <td>8 Hours</td>
-                        <td>$22,500.00</td>
-                        <td>8 Days</td>
-
-                        <td> Esther Howard<br></td>
-                        <td>January 1, 2015</td>
-                        <td>120 Hours</td>
-                        <td>2 Days</td>
-                        <td>8 Hours</td>
-                        <td>$22,500.00</td>
-                        <td>8 Days</td>
-                      
-                        <td>
-                            
-                            <!-- <i class="fas fa-ellipsis-v"></i> -->
-                          <!-- Dropdown menu -->
-                          <div class="dropdown">
-                            <i class="fas fa-ellipsis-v" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;"></i>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#" onclick="handleDelete()">Delete</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="handleUpdate()">Update</a></li>
-                            </ul>
-                        </div>
-                    
-                    </td>
-                    </tr>
-
-
-                    <tr>
-                        <td> Esther Howard<br></td>
-                        <td>January 1, 2015</td>
-                        <td>120 Hours</td>
-                        <td>2 Days</td>
-                        <td>8 Hours</td>
-                        <td>$22,500.00</td>
-                        <td>8 Days</td>
-
-                        <td> Esther Howard<br></td>
-                        <td>January 1, 2015</td>
-                        <td>120 Hours</td>
-                        <td>2 Days</td>
-                        <td>8 Hours</td>
-                        <td>$22,500.00</td>
-                        <td>8 Days</td>
-                        <td>
-                            <!-- Dropdown menu -->
-                            <div class="dropdown">
-                                <i class="fas fa-ellipsis-v" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;"></i>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a class="dropdown-item" href="#" onclick="handleDelete()">Delete</a></li>
-                                    <li><a class="dropdown-item" href="#" onclick="handleUpdate()">Update</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
 
                     <!-- Repeat similar rows for each employee -->
                 </tbody>
             </table>
         </div>
+        <div id="loader" style="display: none;">Loading...</div> 
 
 
 
@@ -212,143 +126,104 @@
 
 
 
-
-
-        
         <div class="modal fade" id="FormModal" tabindex="-1" aria-labelledby="payrollModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="payrollModalLabel">Add new Staff</h5>
+                        <h5 class="modal-title" id="payrollModalLabel">Add New Staff</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form id="popupForm">
-
+                            <!-- Row 1 -->
                             <div class="row mb-3">
-                                <!-- ID Field -->
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <label for="modalId" class="form-label">ID</label>
                                     <input type="text" class="form-control" id="modalId" required>
                                 </div>
-                            
-                                <!-- First Name Field -->
-                                <div class="col-md-4">
-                                    <label for="modalFirstName" class="form-label">First Name</label>
-                                    <input type="text" class="form-control" id="modalFirstName" required>
-                                </div>
-                            
-                                <!-- Last Name Field -->
-                                <div class="col-md-4">
-                                    <label for="modalLastName" class="form-label">Last Name</label>
-                                    <input type="text" class="form-control" id="modalLastName" required>
+                                <div class="col-md-6">
+                                    <label for="modalName" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="modalName" required>
                                 </div>
                             </div>
                             
-
-
-                        <div class="row mb-3">    
-
-
-                            <div class="col-md-4">
-                                <label for="modalDate" class="form-label">Date</label>
-                                <input type="date" class="form-control" id="modalDate" required>
+                            <!-- Row 2 -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="modalAddress" class="form-label">Address</label>
+                                    <input type="text" class="form-control" id="modalAddress" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="modalDesignation" class="form-label">Designation</label>
+                                    <input type="text" class="form-control" id="modalDesignation" required>
+                                </div>
                             </div>
                             
-
-                            <div class="col-md-4">
-                                <label for="modalCategory" class="form-label">Gender</label>
-                                <select class="form-select" id="modalCategory">
-                                    <option selected>Gender</option>
-                                    <option>eeee</option>
-                                    <option>ggggggg</option>
-                                </select>
+                            <!-- Row 3 -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="modalDob" class="form-label">Date of Birth</label>
+                                    <input type="date" class="form-control" id="modalDob" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="modalGender" class="form-label">Gender</label>
+                                    <select class="form-select" id="modalGender" required>
+                                        <option value="" disabled selected>Select Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
                             </div>
         
-                            <div class="col-md-4">
-                                <label for="modalCategory" class="form-label">Role</label>
-                                <select class="form-select" id="modalCategory">
-                                    <option selected>Role</option>
-                                    <option>eeee</option>
-                                    <option>ggggggg</option>
-                                </select>
+                            <!-- Row 4 -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="modalRole" class="form-label">Role</label>
+                                    <select class="form-select" id="modalRole" required>
+                                        <option value="" disabled selected>Select Role</option>
+                                        <option value="Admin">Admin</option>
+                                        <option value="Manager">Manager</option>
+                                        <option value="Staff">Staff</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="modalEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="modalEmail" required>
+                                </div>
                             </div>
-
-                        </div>    
-
-
-
-                        <div class="mb-3">
-                            <label for="modalEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="modalEmail" autocomplete="email" required>
-                        </div>
-
-
-
-                        <div class="row mb-3">    
-
-
-                            <div class="col-md-6">
-                                <label for="modalLastName" class="form-label">Mobile Number</label>
-                                <input type="text" class="form-control" id="modalLastName" required>
+        
+                            <!-- Row 5 -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="modalMobile" class="form-label">Mobile Number</label>
+                                    <input type="text" class="form-control" id="modalMobile" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="modalPostalCode" class="form-label">Postal Code</label>
+                                    <input type="text" class="form-control" id="modalPostalCode" required>
+                                </div>
                             </div>
-                        
-                            <div class="col-md-6">
-                                <label for="modalLastName" class="form-label">Postel Code</label>
-                                <input type="text" class="form-control" id="modalLastName" required>
-                            </div>
+        
+                            <!-- Row 6 -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="modalactive" class="form-label">Status</label>
+                                    <select class="form-select" id="modalactive">
+                                        <option value="" disabled selected>Select Vehicle</option>
+                                        <option value="Truck">AVAILABLE</option>
+                                        <option value="Car">Car</option>
+                                        <option value="Van">Van</option>
+                                    </select>
+                                </div>
 
-                        </div>    
 
-    
+                                <div class="col-md-6">
+                                    <label for="modalJoinedDate" class="form-label">Joined date</label>
+                                    <input type="date" class="form-control" id="modalJoinedDate" required>
+                                </div>
                            
-                            <div class="mb-3">
-                                <label for="modalCommonName" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="modalCommonName" required>
                             </div>
-
-
-                            <div class="row mb-3">    
-
-
-                                <div class="col-md-6">
-                                    <label for="modalCategory" class="form-label">Vehicle</label>
-                                    <select class="form-select" id="modalCategory">
-                                        <option selected>Gender</option>
-                                        <option>eeee</option>
-                                        <option>ggggggg</option>
-                                    </select>
-                                </div>
-            
-                                <div class="col-md-6">
-                                    <label for="modalCategory" class="form-label">FieID</label>
-                                    <select class="form-select" id="modalCategory">
-                                        <option selected>Role</option>
-                                        <option>eeee</option>
-                                        <option>ggggggg</option>
-                                    </select>
-                                </div>
-    
-                            </div>    
-
-                            
-                        <div class="row mb-3">    
-
-
-                            <div class="col-md-6">
-                                <label for="modalLastName" class="form-label">Desination</label>
-                                <input type="text" class="form-control" id="modalLastName" required>
-                            </div>
-                        
-                            <div class="col-md-6">
-                                <label for="modalLastName" class="form-label">Dob</label>
-                                <input type="text" class="form-control" id="modalLastName" required>
-                            </div>
-
-                        </div>    
-    
-
-
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -370,6 +245,106 @@
 
 
 
+
+
+
+<!-- Update Staff Modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updateModalLabel">Update Staff</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="updateStaffForm">
+                    <!-- Staff ID (readonly) -->
+                    <div class="mb-3">
+                        <label for="updatesId" class="form-label">Staff ID</label>
+                        <input type="text" id="updatesId" class="form-control" readonly>
+                    </div>
+                    
+                    <!-- Staff Name -->
+                    <div class="mb-3">
+                        <label for="modalName" class="form-label">Name</label>
+                        <input type="text" id="modalName" class="form-control" required>
+                    </div>
+                    
+                    <!-- Designation -->
+                    <div class="mb-3">
+                        <label for="modalDesignation" class="form-label">Designation</label>
+                        <input type="text" id="modalDesignation" class="form-control" required>
+                    </div>
+                    
+                    <!-- Date of Birth -->
+                    <div class="mb-3">
+                        <label for="modalDob" class="form-label">Date of Birth</label>
+                        <input type="date" id="modalDob" class="form-control" required>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="modalEmail" class="form-label">Email</label>
+                        <input type="email" id="modalEmail" class="form-control" required>
+                    </div>
+                    
+                    <!-- Gender -->
+                    <div class="mb-3">
+                        <label for="modalGender" class="form-label">Gender</label>
+                        <select id="modalGender" class="form-select" required>
+                            <option value="MALE">Male</option>
+                            <option value="FEMALE">Female</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Joined Date -->
+                    <div class="mb-3">
+                        <label for="modalJoinedDate" class="form-label">Joined Date</label>
+                        <input type="date" id="modalJoinedDate" class="form-control" required>
+                    </div>
+                    
+                    <!-- Mobile -->
+                    <div class="mb-3">
+                        <label for="modalMobile" class="form-label">Mobile</label>
+                        <input type="tel" id="modalMobile" class="form-control" required>
+                    </div>
+                    
+                    <!-- Address -->
+                    <div class="mb-3">
+                        <label for="modalAddress" class="form-label">Address</label>
+                        <textarea id="modalAddress" class="form-control" rows="3" required></textarea>
+                    </div>
+                    
+                    <!-- Postal Code -->
+                    <div class="mb-3">
+                        <label for="modalPostalCode" class="form-label">Postal Code</label>
+                        <input type="text" id="modalPostalCode" class="form-control" required>
+                    </div>
+                    
+                    <!-- Role -->
+                    <div class="mb-3">
+                        <label for="modalRole" class="form-label">Role</label>
+                        <input type="text" id="modalRole" class="form-control" required>
+                    </div>
+                    
+                    <!-- Status -->
+                    <div class="mb-3">
+                        <label for="modalactive" class="form-label">Status</label>
+                        <select id="modalactive" class="form-select" required>
+                            <option value="ACTIVE">Active</option>
+                            <option value="INACTIVE">Inactive</option>
+                        </select>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="updateSaveButton">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

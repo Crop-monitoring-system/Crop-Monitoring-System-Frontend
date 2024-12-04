@@ -83,32 +83,6 @@
         </div>
 
 
-                              <!-- Pagination and Results Control -->
-    <!-- <div class="d-flex align-items-center justify-content-between mt-3">
-        <div class="d-flex align-items-center">
-            <label class="me-2">Show result:</label>
-            <select class="form-select form-select-sm" style="width: auto;">
-                <option selected>10</option>
-                <option>25</option>
-                <option>50</option>
-                <option>100</option>
-            </select>
-        </div>
-        <nav aria-label="Page navigation">
-            <ul class="pagination pagination-sm mb-0">
-                <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">1</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">...</a></li>
-                <li class="page-item"><a class="page-link" href="#">9</a></li>
-                <li class="page-item"><a class="page-link" href="#">10</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                </li>
-            </ul>
-        </nav>
-    </div>   -->
              
 
         <!-- Table -->
@@ -125,55 +99,13 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="EquipmentTableBody">
 
-                    <tr>
-                        <td> Esther Howard<br></td>
-                        <td>January 1, 2015</td>
-                        <td>120 Hours</td>
-                        <td>2 Days</td>
-                        <td>$22,500.00</td>
-                        <td>8 Days</td>
-                      
-                        <td>
-                            
-                            <!-- <i class="fas fa-ellipsis-v"></i> -->
-                          <!-- Dropdown menu -->
-                          <div class="dropdown">
-                            <i class="fas fa-ellipsis-v" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;"></i>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#" onclick="handleDelete()">Delete</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="handleUpdate()">Update</a></li>
-                            </ul>
-                        </div>
-                    
-                    </td>
-                    </tr>
-
-
-                    <tr>
-                        <td> Esther Howard<br></td>
-                        <td>January 1, 2015</td>
-                        <td>120 Hours</td>
-                        <td>8 Hours</td>
-                        <td>$22,500.00</td>
-                        <td>8 Days</td>
-                        <td>
-                            <!-- Dropdown menu -->
-                            <div class="dropdown">
-                                <i class="fas fa-ellipsis-v" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;"></i>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a class="dropdown-item" href="#" onclick="handleDelete()">Delete</a></li>
-                                    <li><a class="dropdown-item" href="#" onclick="handleUpdate()">Update</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <!-- Repeat similar rows for each employee -->
+                 
                 </tbody>
             </table>
         </div>
+        <div id="loader" style="display: none;">Loading...</div> 
 
 
 
@@ -198,14 +130,14 @@
         
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <label for="modalCode" class="form-label">ID</label>
-                                    <input type="text" class="form-control" id="modalCode" required>
+                                    <label for="modalEid" class="form-label">ID</label>
+                                    <input type="text" class="form-control" id="modalEid" required>
                                 </div>
         
                                 <!-- Field on the right side -->
                                 <div class="col-md-6">
-                                    <label for="modalCode" class="form-label">Name</label>
-                                    <input type="text" class="form-control" id="modalCode" required>
+                                    <label for="modalName" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="modalName" required>
                                 </div>
                             </div>
 
@@ -215,9 +147,9 @@
                             <div class="row mb-3">
 
                                 <div class="col-md-6">
-                                    <label for="modalCategory" class="form-label">Type</label>
-                                    <select class="form-select" id="modalCategory">
-                                        <option selected>eeeeeee</option>
+                                    <label for="modalType" class="form-label">Type</label>
+                                    <select class="form-select" id="modalType">
+                                        <option selected>PLOW</option>
                                         <option>eeee</option>
                                         <option>ggggggg</option>
                                     </select>
@@ -225,8 +157,12 @@
 
 
                                 <div class="col-md-6">
-                                    <label for="modalCode" class="form-label">Status</label>
-                                    <input type="text" class="form-control" id="modalCode" required>
+                                    <label for="modalactive" class="form-label">Status</label>
+                                    <select class="form-select" id="modalactive">
+                                        <option selected>AVAILABLE</option>
+                                        <option>eeee</option>
+                                        <option>ggggggg</option>
+                                    </select>
                                 </div>
 
                             </div>
@@ -236,23 +172,22 @@
                                 <div class="col-md-6">
                                     <label for="modalField" class="form-label">Field</label>
                                     <select class="form-select" id="modalField">
-                                        <option selected>eeeeeee</option>
-                                        <option>eeee</option>
-                                        <option>ggggggg</option>
+                                        <option selected disabled>Select a Field</option>
+                                        <!-- Options will be dynamically loaded here -->
                                     </select>
                                 </div>
-
+                                
+                            
                                 <div class="col-md-6">
                                     <label for="modalStaff" class="form-label">Staff</label>
                                     <select class="form-select" id="modalStaff">
-                                        <option selected>eeeeeee</option>
-                                        <option>eeee</option>
-                                        <option>ggggggg</option>
+                                        <option selected disabled>Select a Staff</option>
+                                        <!-- <option>s001</option> -->
                                     </select>
                                 </div>
 
-
                             </div>
+                            
         
                             
 
@@ -278,8 +213,71 @@
 
 
 
-
-
+        <div class="modal fade" id="FormModal" tabindex="-1" aria-labelledby="payrollModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="payrollModalLabel">Add new Equipment</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="popupUpdateForm">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="updateEid" class="form-label">ID</label>
+                                    <input type="text" class="form-control" id="updateEid" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="updateName" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="updateName" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="updateType" class="form-label">Type</label>
+                                    <select class="form-select" id="updateType">
+                                        <option selected disabled>Select Type</option>
+                                        <option>PLOW</option>
+                                        <option>Seeder</option>
+                                        <option>Tractor</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="updateactive" class="form-label">Status</label>
+                                    <select class="form-select" id="updateactive">
+                                        <option selected disabled>Select Status</option>
+                                        <option>AVAILABLE</option>
+                                        <option>IN_USE</option>
+                                        <option>UNDER_MAINTENANCE</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="updateField" class="form-label">Field</label>
+                                    <select class="form-select" id="updateField">
+                                        <option selected disabled>Select a Field</option>
+                                        <!-- Options dynamically loaded -->
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="updateStaff" class="form-label">Staff</label>
+                                    <select class="form-select" id="updateStaff">
+                                        <option selected disabled>Select a Staff</option>
+                                        <!-- Options dynamically loaded -->
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" id="updateDetaSendToData">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
 
 
 

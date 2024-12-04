@@ -62,6 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+
+
+
 let selectedRow = null; // Track the currently selected row
 
 // Function to populate the table with field data
@@ -163,12 +167,6 @@ function removeTableRow(row) {
         console.warn('No row to remove.');
     }
 }
-
-
-
-
-
-
 
 
 

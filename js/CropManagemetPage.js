@@ -73,14 +73,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+// delete and update button all complete code 
+
+let selectedRow = null;
 
 
 
 
-
-
-
-// let selectedRow = null; // Track the currently selected row
+// Track the currently selected row
 
 // // Function to populate the table with crop data
 // async function fetchAndPopulateCrops() {
@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //     try {
 //         const response = await fetch('http://localhost:8080/crop/api/v1/Crop/cropAll');
+        
 //         if (!response.ok) throw new Error(`Failed to fetch crops. Status: ${response.status}`);
 //         const crops = await response.json();
 
@@ -104,9 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
 //                 <td>${crop.category}</td>
 //                 <td>${crop.commonName}</td>
 //                 <td>${crop.scientificName}</td>
-//                 <td>${crop.active}</td>
+//                 <td>${crop.status}</td>
 //                 <td><button class="btn btn-danger btn-sm delete-btn">Delete</button></td>
-//                    <td><button class="btn btn-warning  btn-sm delete-btn">Update</button></td>
+//                 <td><button class="btn btn-warning btn-sm update-btn">Update</button></td>
 //             `;
 
 //             // Add a click event to select the row
@@ -121,8 +122,12 @@ document.addEventListener('DOMContentLoaded', () => {
 //                 handleDelete(crop.code, row);
 //             });
 
-
-
+//             // Add event listener to the update button for each row
+//             const updateButton = row.querySelector('.update-btn');
+//             updateButton.addEventListener('click', (event) => {
+//                 event.stopPropagation(); // Prevent the row from being selected
+//                 openUpdateModal(crop); // Open the update modal with crop details
+//             });
 
 //             tableBody.appendChild(row);
 //         });
@@ -135,56 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// // Function to handle row selection
-// function selectTableRow(row, cropCode) {
-//     // Clear previous selection
-//     if (selectedRow) {
-//         selectedRow.style.backgroundColor = ''; // Reset background color
-//     }
-
-//     // Highlight the selected row
-//     selectedRow = row;
-//     selectedRow.style.backgroundColor = 'red'; // Set background color to red
-//     selectedRow.dataset.selectedCropCode = cropCode; // Save the selected crop code
-// }
-
-// // Function to delete a crop from the backend and remove the row
-// async function handleDelete(cropCode, row) {
-//     const confirmDelete = confirm(`Are you sure you want to delete crop with code: ${cropCode}?`);
-//     if (!confirmDelete) return; // Stop if the user cancels
-
-//     try {
-//         // Send DELETE request to the backend
-//         const response = await fetch(`http://localhost:8080/crop/api/v1/Crop/${cropCode}`, {
-//             method: 'DELETE',
-//         });
-
-//         if (response.status === 204) {
-//             alert('Crop deleted successfully');
-//             removeTableRow(row); // Dynamically remove the row from the table
-//         } else if (response.status === 404) {
-//             alert('Crop not found. Unable to delete.');
-//         } else {
-//             alert('Failed to delete crop. Please try again.');
-//         }
-//     } catch (error) {
-//         console.error("Error deleting crop:", error);
-//         alert('An unexpected error occurred. Please try again.');
-//     }
-// }
-
-// // Function to dynamically remove the selected row
-// function removeTableRow(row) {
-//     if (row) {
-//         row.remove(); // Remove the row from the table
-//         console.log(`Row with crop code ${row.dataset.selectedCropCode} removed successfully.`);
-//     } else {
-//         console.warn('No row to remove.');
-//     }
-// }
-
-// // Initialize table on page load
-// document.addEventListener('DOMContentLoaded', fetchAndPopulateCrops);
 
 
 
@@ -200,22 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// delete and update button all complete code 
-
-let selectedRow = null; // Track the currently selected row
+ // Track the currently selected row
 
 // Function to populate the table with crop data
 async function fetchAndPopulateCrops() {
@@ -223,10 +163,18 @@ async function fetchAndPopulateCrops() {
     tableBody.innerHTML = ''; // Clear existing rows
 
     try {
+        // Fetch data from the API
         const response = await fetch('http://localhost:8080/crop/api/v1/Crop/cropAll');
-        if (!response.ok) throw new Error(`Failed to fetch crops. Status: ${response.status}`);
+        
+        // Check if the response is OK
+        if (!response.ok) {
+            throw new Error(`Failed to fetch crops. Status: ${response.status} - ${response.statusText}`);
+        }
+
+        // Parse the JSON response
         const crops = await response.json();
 
+        // Populate the table with crop data
         crops.forEach(crop => {
             const row = document.createElement('tr');
             row.setAttribute('data-crop-code', crop.code); // Add a data attribute for crop code
@@ -263,13 +211,29 @@ async function fetchAndPopulateCrops() {
                 openUpdateModal(crop); // Open the update modal with crop details
             });
 
+            // Append the row to the table body
             tableBody.appendChild(row);
         });
     } catch (error) {
+        // Log the error and display an alert
         console.error("Error fetching crop data:", error);
-        alert('Failed to load crop data. Please try again.');
+        alert(`Failed to load crop data: ${error.message}`);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -395,6 +359,3 @@ document.addEventListener('DOMContentLoaded', fetchAndPopulateCrops);
 
 // Attach event listener to the update modal's save button
 document.getElementById('updateSaveButton').addEventListener('click', handleUpdate);
-
-
-
