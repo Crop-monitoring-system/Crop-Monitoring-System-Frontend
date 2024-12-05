@@ -1,5 +1,10 @@
 
 import { saveMlogs } from "../model/MonitorLogModel.js";
+import { loadStaffOptions } from "../model/MonitorLogModel.js";
+// import { loadCropOptions } from "../model/MonitorLogModel.js";
+// import { loadFieldptions } from "../model/MonitorLogModel.js";
+
+
 
 
 
@@ -53,6 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const dateInput = document.getElementById('modalDate').value;
             const observationInput = document.getElementById('modalobservation').value;
             const imageInput = document.getElementById('modalImage').files[0];
+            const staffInput = document.getElementById('modalStaff').value;
+            const cropInput = document.getElementById('modalCrop').value;
+            const fieldInput = document.getElementById('modalField').value;
             
 
         
@@ -64,6 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
             formData.append('mDate', dateInput);
             formData.append('observation', observationInput);
             formData.append('observedImage', imageInput);
+            formData.append('staff', staffInput);
+            formData.append('crop', cropInput);
+            formData.append('field', fieldInput);
         
             // Save field
             try {
@@ -81,6 +92,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // When the modal is shown, load the field and staff options
+    const modalElement = document.getElementById('FormModal');
+    const modal = new bootstrap.Modal(modalElement, { backdrop: 'static' });
+
+    modalElement.addEventListener('shown.bs.modal', async () => {
+        try {
+            await loadStaffOptions(); // Call the imported function
+        } catch (error) {
+            console.error('Error loading data for modal:', error);
+        }
+    });
+});
+
+
+// // Event Listener for Modal Load
+// document.addEventListener('DOMContentLoaded', () => {
+//     const modalElement = document.getElementById('FormModal');
+//     const modal = new bootstrap.Modal(modalElement, { backdrop: 'static' });
+
+//     modalElement.addEventListener('shown.bs.modal', async () => {
+//         try {
+//             await loadCropOptions(); // Load crop options when modal is shown
+//         } catch (error) {
+//             console.error('Error loading data for modal:', error);
+//         }
+//     });
+// });
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     // When the modal is shown, load the field and staff options
+//     const modalElement = document.getElementById('FormModal');
+//     const modal = new bootstrap.Modal(modalElement, { backdrop: 'static' });
+
+//     modalElement.addEventListener('shown.bs.modal', async () => {
+//         try {
+//             await loadFieldptions(); // Call the imported function
+//         } catch (error) {
+//             console.error('Error loading data for modal:', error);
+//         }
+//     });
+// });
 
 
 

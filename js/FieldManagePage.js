@@ -159,9 +159,6 @@ async function fetchAndPopulateFields() {
 
 
 
-
-
-
 // Function to handle row selection
 function selectTableRow(row, fcode) {
     // Clear previous selection

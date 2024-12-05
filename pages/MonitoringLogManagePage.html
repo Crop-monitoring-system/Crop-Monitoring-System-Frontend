@@ -164,6 +164,43 @@
 
                                 
                             </div>
+
+
+
+                            <div class="mb-3">
+                                <label for="modalStaff" class="form-label">Staff</label>
+                                <select class="form-select" id="modalStaff" required>
+                                    <option selected disabled>Select a Staff</option>
+                                    <!-- Dynamic options will be added here -->
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="modalCrop" class="form-label">Crop</label>
+                                <select class="form-select" id="modalCrop" required>
+                                    <option selected disabled>Select a Crop</option>
+
+                                    <option selected>Status</option>
+                                    <option>C001</option>
+                                    <option>C002</option>
+
+                                </select>
+                            </div>
+                            
+
+
+                            <div class="mb-3">
+                                <label for="modalField" class="form-label">Field</label>
+                                <select class="form-select" id="modalField" required>
+                                    <option selected disabled>Select a Field</option>
+                                    <!-- Dynamic options will be added here -->
+                                    <option selected>Status</option>
+                                    <option>F001</option>
+                                    <option>F002</option>
+                                    
+                                </select>
+                            </div>
+                            
         
         
                            
@@ -188,7 +225,6 @@
 
 
 
-
 <!-- Update Modal for Monitor Log -->
 <div class="modal fade" id="updateLogModal" tabindex="-1" aria-labelledby="updateLogModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -205,17 +241,17 @@
                     </div>
                     <div class="mb-3">
                         <label for="updateMDate" class="form-label">Date</label>
-                        <input type="date" class="form-control" id="updateMDate">
+                        <input type="date" class="form-control" id="updateMDate" required>
                     </div>
                     <div class="mb-3">
                         <label for="updateObservation" class="form-label">Observation</label>
-                        <textarea class="form-control" id="updateObservation"></textarea>
+                        <textarea class="form-control" id="updateObservation" rows="3" required></textarea>
                     </div>
-                  
                     <div class="mb-3">
                         <label for="updateImageFile" class="form-label">New Image (optional)</label>
                         <input type="file" class="form-control" id="updateImageFile">
                     </div>
+                    
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary" id="updateSaveButton">Save changes</button>
@@ -225,6 +261,7 @@
         </div>
     </div>
 </div>
+
 
 
 
