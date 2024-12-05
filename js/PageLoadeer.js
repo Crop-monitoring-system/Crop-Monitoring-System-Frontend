@@ -115,3 +115,12 @@ function loadMonitoringLogPage() {
 document.querySelector("button[onclick='loadMonitoringLogPage()']").addEventListener("click", loadMonitoringLogPage);
 
 
+
+
+
+
+
+
+
+
+

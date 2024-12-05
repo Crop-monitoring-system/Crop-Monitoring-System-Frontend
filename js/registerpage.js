@@ -1,30 +1,45 @@
 import { saveUser } from "../model/UserRegModel.js";
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    const createAccountButton = document.getElementById("CretaeAccBtn");
 
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('CretaeAccBtn').addEventListener('click', async () => {
-        const emailinput = document.getElementById('exampleInputEmail1').value;
-        const passwordinput = document.getElementById('exampleInputPassword1').value;
-        const roleinput = document.getElementById('disabledSelect').value;
+    if (createAccountButton) {
+        createAccountButton.addEventListener("click", async () => {
+            const email = document.getElementById("InputEmail1").value;
+            const password = document.getElementById("InputPassword1").value;
+            const confirmPassword = document.getElementById("confimepw").value;
+            const role = document.getElementById("disabledSelect").value;
 
-        // const conformpassword = document.getElementById('confimepw').value;
 
-        const user = {
-            email: emailinput,
-            password:passwordinput,
-            role: roleinput
-        };
+            if (!email || !password || !confirmPassword || !role) {
+                alert("All fields are required.");
+                return;
+            }
 
-        try {
-            await saveUser (user); // Call the function to save the user
-        } catch (error) {
-            console.error("Error creating user:", error);
-        }
-    });
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return;
+            }
+
+            // Create user object
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('password', password);
+            formData.append('role', role);
+            
+            // Call saveUser
+           
+
+            // Save user
+            try {
+                await saveUser(formData);
+                alert("User added successfully!");
+                document.getElementById("userForm").reset();
+            } catch (error) {
+                console.error("Error saving user:", error);
+                alert("Failed to save user. Please try again.");
+            }
+        });
+    }
 });
-
-
-
-
-

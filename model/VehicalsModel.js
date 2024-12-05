@@ -1,13 +1,20 @@
-export async function saveField(formData) {
+
+
+
+export async function saveVehical(formData) {
     try {
-        const response = await fetch("http://localhost:8080/crop/api/v1/Field", {
+        const response = await fetch("http://localhost:8080/crop/api/v1/vehicle", {
             method: "POST",
+            headers: {
+                // No need to set Content-Type for FormData, as the browser handles it
+            },
             body: formData, // Send the FormData object as body
         });
 
         const responseText = await response.text();
         console.log("Response text:", responseText);
 
+        // Try to parse the response as JSON, fallback to text if it fails
         const responseData = (() => {
             try {
                 return JSON.parse(responseText);
@@ -16,18 +23,22 @@ export async function saveField(formData) {
             }
         })();
 
+        // Check if the response was successful
         if (response.ok) {
-           
-            alert(responseData.message || "Field saved successfully!");
+            console.log("Equipment saved successfully");
+            alert(responseData.message || "Equipment saved successfully!");
         } else {
-            console.error("Failed to save Field", { status: response.status, responseText });
-            alert("Failed to save Field: " + (responseData.message || "No additional information available."));
+            console.error("Failed to save equipment", { status: response.status, responseText });
+            alert("Failed to save equipment: " + (responseData.message || "No additional information available."));
         }
     } catch (error) {
         console.error("Request failed:", error);
         alert("An error occurred. Please try again later.");
     }
 }
+
+
+
 
 
 
@@ -57,14 +68,4 @@ export async function loadStaffOptions() {
         alert('Failed to load staff options');
     }
 }
-
-
-
-
-
-
-
-
-
-
 

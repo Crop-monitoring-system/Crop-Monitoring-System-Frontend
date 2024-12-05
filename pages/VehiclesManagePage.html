@@ -126,57 +126,14 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="VehicalTableBody">
 
-                    <tr>
-                        <td> Esther Howard<br></td>
-                        <td>January 1, 2015</td>
-                        <td>120 Hours</td>
-                        <td>2 Days</td>
-                        <td>8 Hours</td>
-                        <td>$22,500.00</td>
-                        <td>8 Days</td>
-                      
-                        <td>
-                            
-                            <!-- <i class="fas fa-ellipsis-v"></i> -->
-                          <!-- Dropdown menu -->
-                          <div class="dropdown">
-                            <i class="fas fa-ellipsis-v" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;"></i>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#" onclick="handleDelete()">Delete</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="handleUpdate()">Update</a></li>
-                            </ul>
-                        </div>
+                  
                     
-                    </td>
-                    </tr>
-
-
-                    <tr>
-                        <td> Esther Howard<br></td>
-                        <td>January 1, 2015</td>
-                        <td>120 Hours</td>
-                        <td>2 Days</td>
-                        <td>8 Hours</td>
-                        <td>$22,500.00</td>
-                        <td>8 Days</td>
-                        <td>
-                            <!-- Dropdown menu -->
-                            <div class="dropdown">
-                                <i class="fas fa-ellipsis-v" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;"></i>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a class="dropdown-item" href="#" onclick="handleDelete()">Delete</a></li>
-                                    <li><a class="dropdown-item" href="#" onclick="handleUpdate()">Update</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <!-- Repeat similar rows for each employee -->
                 </tbody>
             </table>
         </div>
+        <div id="loader" style="display: none;">Loading...</div> 
 
 
 
@@ -203,14 +160,14 @@
 
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <label for="modalCode" class="form-label">Code</label>
-                                    <input type="text" class="form-control" id="modalCode" required>
+                                    <label for="modalVCode" class="form-label">Code</label>
+                                    <input type="text" class="form-control" id="modalVCode" required>
                                 </div>
         
                                 <!-- Field on the right side -->
                                 <div class="col-md-6">
-                                    <label for="modalSeason" class="form-label">Licen Plate Number</label>
-                                    <input type="text" class="form-control" id="modalSeason" required>
+                                    <label for="modalLicensePlateNo" class="form-label">Licen Plate Number</label>
+                                    <input type="text" class="form-control" id="modalLicensePlateNo" required>
                                 </div>
     
                             </div>
@@ -227,31 +184,49 @@
                             </div>
         
                             <div class="col-md-6">
-                                <label for="modalCategory" class="form-label">Fule Type</label>
-                                <select class="form-select" id="modalCategory">
+                                <label for="modalFuelType" class="form-label">Fule Type</label>
+                                <select class="form-select" id="modalFuelType">
                                     <option selected>eeeeeee</option>
                                     <option>eeee</option>
                                     <option>ggggggg</option>
                                 </select>
                             </div>
 
-                        </div>    
-        
-                        <div class="mb-3">
-                            <label for="modalCommonName" class="form-label">Status</label>
-                            <input type="text" class="form-control" id="modalCommonName" required>
-                        </div>
-    
                            
-                            <div class="mb-3">
-                                <label for="modalCommonName" class="form-label">Remark</label>
-                                <input type="text" class="form-control" id="modalCommonName" required>
-                            </div>
-        
-                            <div class="mb-3">
-                                <label for="modalScientificName" class="form-label">Staff</label>
-                                <input type="text" class="form-control" id="modalScientificName" required>
-                            </div>
+
+                        </div>    
+
+                        <div class="md-3">
+                            <label for="modalRemark" class="form-label">Remark</label>
+                            <input type="text" class="form-control" id="modalRemark" required>
+                        </div><br>
+
+
+                     <div class="row mb-3">     
+
+                        <div class="col-md-6">
+                            <label for="modalStatus" class="form-label">Status</label>
+                           <select class="form-select" id="modalStatus">
+                                    <option selected>AVAILABLE</option>
+                                    <option>eeee</option>
+                                    <option>ggggggg</option>
+                                </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            
+                            <label for="modalStaff" class="form-label">Staff</label>
+                            <select class="form-select" id="modalStaff">
+                                <option selected disabled>Select a Staff</option>
+                                <!-- <option>s001</option> -->
+                            </select>
+                        </div>
+                    
+                              
+                    </div>     
+                           
+
+
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -262,6 +237,114 @@
             </div>
         </div>
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        <div class="modal fade" id="FormModal" tabindex="-1" aria-labelledby="payrollModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="payrollModalLabel">Add new Vehicle</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="updatePopupForm">
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="updateVCode" class="form-label">Code</label>
+                                    <input type="text" class="form-control" id="updateVCode" required>
+                                </div>
+        
+                                <!-- Field on the right side -->
+                                <div class="col-md-6">
+                                    <label for="updateLicensePlateNo" class="form-label">Licen Plate Number</label>
+                                    <input type="text" class="form-control" id="updateLicensePlateNo" required>
+                                </div>
+    
+                            </div>
+
+
+                        <div class="row mb-3">    
+                            <div class="col-md-6">
+                                <label for="updateCategory" class="form-label">Category</label>
+                                <select class="form-select" id="updateCategory">
+                                    <option selected>eeeeeee</option>
+                                    <option>eeee</option>
+                                    <option>ggggggg</option>
+                                </select>
+                            </div>
+        
+                            <div class="col-md-6">
+                                <label for="updateFuelType" class="form-label">Fule Type</label>
+                                <select class="form-select" id="updateFuelType">
+                                    <option selected>eeeeeee</option>
+                                    <option>eeee</option>
+                                    <option>ggggggg</option>
+                                </select>
+                            </div>
+
+                           
+
+                        </div>    
+
+                        <div class="md-3">
+                            <label for="updateRemark" class="form-label">Remark</label>
+                            <input type="text" class="form-control" id="updateRemark" required>
+                        </div><br>
+
+
+                     <div class="row mb-3">     
+
+                        <div class="col-md-6">
+                            <label for="updateStatus" class="form-label">Status</label>
+                           <select class="form-select" id="updateStatus">
+                                    <option selected>AVAILABLE</option>
+                                    <option>eeee</option>
+                                    <option>ggggggg</option>
+                                </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            
+                            <label for="updateStaff" class="form-label">Staff</label>
+                            <select class="form-select" id="updateStaff">
+                                <option selected disabled>Select a Staff</option>
+                                <!-- <option>s001</option> -->
+                            </select>
+                        </div>
+                    
+                              
+                    </div>     
+                           
+
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" id="confirmUpdateSendToData">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
 
 
 

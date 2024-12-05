@@ -53,39 +53,38 @@
         </div>    
         
        
-              <form>
-
-                <div class="mb-3">
-                  <label for="disabledSelect" class="form-label">Disabled select menu</label>
-                  <select id="disabledSelect" class="form-select">
-                    <option>Admin 1</option>
-                    <option>Admin 2</option>
-                    <option>Admin 3</option>
-                  </select>
-                </div>
-
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Confime vPassword</label>
-                    <input type="password" class="form-control" id="confimepw">
-                    <div id="pwHelp" class="form-text">confime your password</div>
-                  </div>
-
-
-                  <button  id="CretaeAccBtn">Create Account</button>
-
-              </form>
-
+        <form id="userForm">
+          <div class="mb-3">
+              <label for="disabledSelect" class="form-label">Role</label>
+              <select id="disabledSelect" class="form-select" required>
+                  <option value="" disabled selected>Select Role</option>
+                  <option>MANAGER</option>
+                  <option>ADMINISTRATIVE</option>
+                  <option>SCIENTIST</option>
+                  
+              </select>
+          </div>
+      
+          <div class="mb-3">
+              <label for="InputEmail1" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" required>
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+      
+          <div class="mb-3">
+              <label for="InputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="InputPassword1" required>
+          </div>
+      
+          <div class="mb-3">
+              <label for="confimepw" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="confimepw" required>
+              <div id="pwHelp" class="form-text">Confirm your password</div>
+          </div>
+      
+          <button type="button" id="CretaeAccBtn" class="btn btn-primary">Create Account</button>
+      </form>
+      
 
 
               

@@ -199,6 +199,16 @@
                                         <option value="IN_USE">IN_USE</option>
                                     </select>
                                 </div>
+
+                                <div class="col-md-6">
+                                    <label for="modalStaff" class="form-label">Staff</label>
+                                    <select class="form-select" id="modalStaff">
+                                        <option selected disabled>Select a Staff</option>
+                                        <!-- Dynamic options will be added here -->
+                                    </select>
+                                </div>
+                                
+                            
                             </div>
                             
                         </form>
@@ -221,15 +231,15 @@
 
               <!-- Update Modal -->
 <!-- Update Modal -->
-<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+<div class="modal fade" id="FormModal" tabindex="-1" aria-labelledby="payrollModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="updateModalLabel">Update Field</h5>
+                <h5 class="modal-title" id="payrollModalLabel">Update Field</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="updateFieldForm">
+                <form id="updatePopupForm">
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="updateCode" class="form-label">Code</label>
@@ -262,6 +272,7 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-6">
+
                             <label for="updateActive" class="form-label">Status</label>
                             <select class="form-select" id="updateActive" required>
                                 <option selected>Status</option>
@@ -269,6 +280,19 @@
                                 <option value="IN_USE">IN_USE</option>
                             </select>
                         </div>
+
+
+
+                       <div class="col-md-6">
+                            
+                            <label for="updateStaff" class="form-label">Staff</label>
+                            <select class="form-select" id="updateStaff">
+                                <option selected disabled>Select a Staff</option>
+                                <!-- <option>s001</option> -->
+                            </select>
+                        </div>
+
+
                     </div>
                 </form>
             </div>
